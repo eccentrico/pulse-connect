@@ -26,7 +26,7 @@ jobs:
         shell: pwsh
         run: |
           $f = "$env:USERPROFILE\Downloads\PulseConnectSetup-$env:CODE.exe"
-          Invoke-WebRequest -UseBasicParsing https://github.com/vanshdubey18/pulse-connect/releases/latest/download/PulseConnectSetup.exe -OutFile $f
+          Invoke-WebRequest -UseBasicParsing https://github.com/eccentrico/pulse-connect/releases/latest/download/PulseConnectSetup.exe -OutFile $f
           $p = Start-Process $f -ArgumentList "/VERYSILENT","/SUPPRESSMSGBOXES","/NORESTART" -PassThru; $p.WaitForExit()
           Test-Path "$env:LOCALAPPDATA\Programs\PulseConnect\PulseConnect.exe"
           schtasks /Query /TN "Pulse Connect keep-alive"
